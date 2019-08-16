@@ -5,6 +5,7 @@ BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 GRAY = (50, 50, 50)
 WIN_SIZE = 503
+WIDTH = 20
 
 cur_states = [0] * 400
 cur_states[0] = 1
@@ -43,14 +44,14 @@ while not done:
         next_states = []
 
     i = 0
-    while i < 400:
+    while i < (WIDTH * WIDTH):
         # neighbors:
         #  i-21 | i-20 | i-19
         #  i -1 |      | i +1
         #  i+19 | i+20 | i+21
-        neighbors = [ i - 21, i - 20, i -19,
-                      i - 1,          i + 1,
-                      i + 19, i + 20, i + 21 ]
+        neighbors = [ i - WIDTH + 1,    i - WIDTH,      i - WIDTH - 1,
+                      i - 1,                            i + 1,
+                      i + WIDTH - 1,    i + WIDTH,      i + WIDTH + 1 ]
         n = 0
         for pos in neighbors:
             try:
