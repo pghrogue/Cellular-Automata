@@ -55,7 +55,8 @@ while not done:
         n = 0
         for pos in neighbors:
             try:
-                n += cur_states[pos]
+                if not (i % 10) and not (i % 20):
+                    n += cur_states[pos]
             except:
                 pass
  
